@@ -51,10 +51,10 @@ conda activate deformetrica
     yum -y install patch
     yum -y install qt5-qtbase-devel
     yum -y install qt5-qtsvg-devel
-    yum -y install git g++ numpy eigen3-devel zlib-devel libqt4-devel libgl1-mesa-dev libtiff-devel
+    yum -y install git g++ numpy eigen3-devel zlib-devel libqt4-devel libtiff-devel
     yum -y install bzip2 ca-certificates \
-    libglib2.0-0 libxext6 libsm6 libxrender1 \
-    git mercurial subversion
+    	libglib2.0-0 libxext6 libsm6 libxrender1 \
+   	git mercurial subversion
     yum -y update
    
     mkdir -p /storage/home
@@ -76,7 +76,7 @@ conda activate deformetrica
     conda update conda
     conda update anaconda
 
-    conda create -y -p /opt/sw/deformetrica && source activate deformetrica
+    conda create -y -n deformetrica && source activate deformetrica
     conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
     echo "conda activate deformetrica" >> ~/.bashrc
     
