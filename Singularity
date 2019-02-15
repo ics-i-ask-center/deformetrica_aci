@@ -67,6 +67,7 @@ source /opt/conda/etc/profile.d/conda.sh
     bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
     ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 #    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+    source /opt/conda/etc/profile.d/conda.sh
 
     conda create -n deformetrica && source activate deformetrica
     conda install -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
