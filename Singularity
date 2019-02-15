@@ -46,7 +46,6 @@ Include: yum
     yum -y install openmpi-devel
     yum -y install cmake3
     yum -y install hdf5-devel
-#    yum -y install boost-devel
     yum -y install patch
     yum -y install qt5-qtbase-devel
     yum -y install qt5-qtsvg-devel
@@ -65,9 +64,9 @@ Include: yum
     cd /opt/sw/
     wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
     bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
+    ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 
     conda create -n deformetrica && source activate deformetrica
-
     conda install -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
 
     
