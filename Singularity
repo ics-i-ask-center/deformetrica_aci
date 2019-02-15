@@ -11,6 +11,8 @@ Include: yum
 #    LD_PRELOAD="/opt/eod/lib/libopentextdlfaker.so.3:/opt/eod/lib/libopentextglfaker.so.3 \
 #        :/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3"
 #    export LD_PRELOAD
+source /opt/sw/anaconda3/etc/profile.d/conda.sh
+conda activate deformetrica
 
 %apprun python
   exec python "${@}"
@@ -74,7 +76,7 @@ Include: yum
     conda update conda
     conda update anaconda
 
-    conda create -y -p /opt/sw/deformetrica -n deformetrica && source activate deformetrica
+    conda create -y -p /opt/sw/deformetrica && source activate deformetrica
     conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
     echo "conda activate deformetrica" >> ~/.bashrc
     
