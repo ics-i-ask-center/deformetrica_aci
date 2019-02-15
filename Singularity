@@ -11,7 +11,7 @@ Include: yum
 #    LD_PRELOAD="/opt/eod/lib/libopentextdlfaker.so.3:/opt/eod/lib/libopentextglfaker.so.3 \
 #        :/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3"
 #    export LD_PRELOAD
-source /opt/conda/etc/profile.d/conda.sh
+source /opt/sw/anaconda3/etc/profile.d/conda.sh
 
 %apprun python
   exec python "${@}"
@@ -65,9 +65,9 @@ source /opt/conda/etc/profile.d/conda.sh
     cd /opt/sw/
     wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
     bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
-    ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
-#    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
-    source /opt/conda/etc/profile.d/conda.sh
+#    ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+    echo "source /opt/sw/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+    source /opt/sw/anaconda3/etc/profile.d/conda.sh
 
     conda create -n deformetrica && source activate deformetrica
     conda install -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
