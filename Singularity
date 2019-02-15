@@ -74,8 +74,8 @@ Include: yum
     conda update conda
     conda update anaconda
 
-    conda create -n deformetrica && source activate deformetrica
-    conda install -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
+    conda create -y -p /opt/sw/deformetrica -n deformetrica && source activate deformetrica
+    conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
     echo "conda activate deformetrica" >> ~/.bashrc
     
 #    # Download requires libraries for EoD:
