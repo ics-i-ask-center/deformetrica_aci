@@ -76,15 +76,15 @@ conda activate deformetrica
     
     # Update conda
 #    conda update -n base -c defaults conda
-    conda update conda
-    conda update anaconda
+    conda update -y conda
+    conda update -y anaconda
 
     conda create -y -n deformetrica && source activate deformetrica
     conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
 #    echo "conda activate deformetrica" >> ~/.bashrc
     
 #    # Download requires libraries for EoD:
-#    cd /opt/
+#    cd /opt/sw/
 #    svn export https://github.com/willgpaik/MorphoGraphX_aci.git/trunk/eod_graphics_libraries
 #    mv eod_graphics_libraries eod
 
