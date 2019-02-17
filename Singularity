@@ -30,7 +30,7 @@ conda activate deformetrica
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     export PATH=$PATH:/opt/sw/anaconda3/bin/
     
-    chmod +x /opt/sw/anaconda3/etc/profile.d/conda.sh
+    chmod a+x /opt/sw/anaconda3/etc/profile.d/conda.sh
     
     # Update conda
 #    conda update -n base -c defaults conda
