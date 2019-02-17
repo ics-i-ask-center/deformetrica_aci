@@ -13,17 +13,11 @@ Include: yum
 #    export LD_PRELOAD
 PATH="$PATH:/opt/sw/anaconda3/bin/"
 export PATH
-source /opt/sw/anaconda3/etc/profile.d/conda.sh
-source activate deformetrica
-
-%apprun python
-  exec python "${@}"
-
-%apprun conda
-  exec conda "${@}"
+/opt/sw/anaconda3/etc/profile.d/conda.sh
+conda activate deformetrica
 
 %runscript
-  exec "${@}"
+  exec /opt/sw/anaconda3/envs/deformetrica/bin/deformetrica ""$@"
 
 
 %post
@@ -74,6 +68,8 @@ source activate deformetrica
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     export PATH=$PATH:/opt/sw/anaconda3/bin/
     
+    chmod +x /opt/sw/anaconda3/etc/profile.d/conda.sh
+    
     # Update conda
 #    conda update -n base -c defaults conda
     conda update -y conda
@@ -81,6 +77,7 @@ source activate deformetrica
 
     conda create -y -n deformetrica && source activate deformetrica
     conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
+    conda update -y deformetrica
 #    echo "conda activate deformetrica" >> ~/.bashrc
     
 #    # Download requires libraries for EoD:
