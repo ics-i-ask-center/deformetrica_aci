@@ -2,8 +2,6 @@ BootStrap: shub
 From: willgpaik/centos7_aci
 
 %setup
-  source /opt/sw/anaconda3/etc/profile.d/conda.sh
-  conda activate deformetrica
   
 %files
 
@@ -25,7 +23,8 @@ export PATH
     cd /opt/sw/
     wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
     bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
-#    ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+    ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /.singularity.d/env/conda.sh
+    chmod a+x /.singularity.d/env/conda.sh
 #    echo "source /opt/sw/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     export PATH=$PATH:/opt/sw/anaconda3/bin/
@@ -44,8 +43,6 @@ export PATH
 #    cd /opt/sw/
 #    svn export https://github.com/willgpaik/MorphoGraphX_aci.git/trunk/eod_graphics_libraries
 #    mv eod_graphics_libraries eod
-
-    chmod a+x /opt/sw/anaconda3/etc/profile.d/conda.sh
 
     cd /opt/sw/
     rm Anaconda3-2018.12-Linux-x86_64.sh
