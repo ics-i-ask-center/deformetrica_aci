@@ -14,7 +14,7 @@ Include: yum
 PATH="$PATH:/opt/sw/anaconda3/bin/"
 export PATH
 source /opt/sw/anaconda3/etc/profile.d/conda.sh
-conda activate deformetrica
+source activate deformetrica
 
 %apprun python
   exec python "${@}"
