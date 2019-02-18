@@ -2,18 +2,16 @@ BootStrap: shub
 From: willgpaik/centos7_aci
 
 %setup
-  mkdir -p $SINGULARITY_ROOTS/.singularity.d/env
-  echo "bash /opt/sw/anaconda3/etc/profile.d/conda.sh" >> $SINGULARITY_ROOTFS/.singularity.d/env/80-custom.sh
-  chmod u+x $SINGULARITY_ROOTFS/.singularity.d/env/80-custom.sh
+  
 %files
 
 %environment
-  PATH="$PATH:/opt/sw/anaconda3/bin/"
-  export PATH
+    PATH="$PATH:/opt/sw/anaconda3/bin/"
+    export PATH
 
 %runscript
-  conda activate deformetrica
-  exec /opt/sw/anaconda3/envs/deformetrica/bin/deformetrica "$@"
+    source activate deformetrica
+    exec /opt/sw/anaconda3/envs/deformetrica/bin/deformetrica "$@"
 
 %post
     # Install Anaconda
@@ -31,8 +29,6 @@ From: willgpaik/centos7_aci
     conda create -y -n deformetrica && source activate deformetrica
     conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
     conda update -y deformetrica
-
-    chmod a+x /opt/sw/anaconda3/etc/profile.d/conda.sh
     
     cd /opt/sw/
     rm Anaconda3-2018.12-Linux-x86_64.sh
