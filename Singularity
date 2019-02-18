@@ -10,8 +10,9 @@ From: willgpaik/centos7_aci
     export PATH
 
 %runscript
+    source /opt/sw/anaconda3/etc/profile.d/conda.sh
     source activate deformetrica
-    exec /opt/sw/anaconda3/envs/deformetrica/bin/deformetrica "$@"
+    exec "$@"
 
 %post
     # Install Anaconda
