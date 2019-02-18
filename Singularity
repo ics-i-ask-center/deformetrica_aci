@@ -25,8 +25,6 @@ export PATH
     wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
     bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
     ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /.singularity.d/env/conda.sh
-    chmod a+x /.singularity.d/env/conda.sh
-    chmod a+x /opt/sw/anaconda3/etc/profile.d/conda.sh
 #    echo "source /opt/sw/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     export PATH=$PATH:/opt/sw/anaconda3/bin/
@@ -40,6 +38,9 @@ export PATH
     conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
     conda update -y deformetrica
 #    echo "conda activate deformetrica" >> ~/.bashrc
+
+    chmod a+x /.singularity.d/env/conda.sh
+    chmod a+x /opt/sw/anaconda3/etc/profile.d/conda.sh
     
 #    # Download requires libraries for EoD:
 #    cd /opt/sw/
