@@ -14,7 +14,8 @@ PATH="$PATH:/opt/sw/anaconda3/bin/"
 export PATH
 
 %runscript
-  exec /opt/sw/anaconda3/envs/deformetrica/bin/deformetrica ""$@"
+  conda activate deformetrica
+  exec /opt/sw/anaconda3/envs/deformetrica/bin/deformetrica "$@"
 
 
 %post
@@ -25,6 +26,7 @@ export PATH
     bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
     ln -s /opt/sw/anaconda3/etc/profile.d/conda.sh /.singularity.d/env/conda.sh
     chmod a+x /.singularity.d/env/conda.sh
+    chmod a+x /opt/sw/anaconda3/etc/profile.d/conda.sh
 #    echo "source /opt/sw/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     export PATH=$PATH:/opt/sw/anaconda3/bin/
