@@ -13,3 +13,6 @@ Commands:
 Or,  
 > deformetrica gui
 ```
+2020/9/21  
+GPU support is added  
+Anaconda, Python, and Deformetrica are updated
