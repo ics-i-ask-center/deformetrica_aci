@@ -1,5 +1,5 @@
 BootStrap: shub
-From: willgpaik/centos7_aci
+From: willgpaik/centos7_aci:gpu
 
 %setup
   
@@ -18,8 +18,8 @@ From: willgpaik/centos7_aci
     # Install Anaconda
     mkdir -p /opt/sw/
     cd /opt/sw/
-    wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
-    bash Anaconda3-2018.12-Linux-x86_64.sh -b -p /opt/sw/anaconda3
+    wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+    bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/sw/anaconda3
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     export PATH=$PATH:/opt/sw/anaconda3/bin/
     
@@ -27,11 +27,10 @@ From: willgpaik/centos7_aci
     conda update -y conda
     conda update -y anaconda
 
-    conda create -y -n deformetrica && source activate deformetrica
-    conda install -y -c pytorch -c conda-forge -c anaconda -c aramislab deformetrica
-    conda update -y deformetrica
+    conda create -y -n deformetrica python=3.8 numpy && source activate deformetrica
+    pip install deformetrica
     
     cd /opt/sw/
-    rm Anaconda3-2018.12-Linux-x86_64.sh
+    rm Anaconda3-2020.07-Linux-x86_64.sh
     
     
