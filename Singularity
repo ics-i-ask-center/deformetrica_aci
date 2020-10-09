@@ -29,8 +29,8 @@ From: willgpaik/centos7_aci:gpu
 
     conda create -y -n deformetrica python=3.8 numpy && source activate deformetrica
     conda install -y pytorch torchvision cudatoolkit=10.2 -c pytorch
-    pip install -y pykeops
-    pip install -y deformetrica
+    pip install pykeops
+    pip install deformetrica
     
     cd /opt/sw/
     rm Anaconda3-2020.07-Linux-x86_64.sh
