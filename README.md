@@ -16,3 +16,6 @@ Or,
 2020/9/21  
 GPU support is added  
 Anaconda, Python, and Deformetrica are updated
+
+2020/10/9  
+PyTorch and PyKeOps are added
