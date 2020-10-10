@@ -6,15 +6,33 @@ From: willgpaik/centos7_aci:gpu
 %files
 
 %environment
+    source /opt/rh/devtoolset-8/enable
     PATH="$PATH:/opt/sw/anaconda3/bin/"
     export PATH
+    PATH="/usr/local/bin/:$PATH:/usr/lib64/openmpi/bin/:/usr/local/cuda/bin"
+    LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/:/usr/local/cuda/lib64"
+    MPI_ROOT=/usr/lib64/openmpi/
+    export PATH
+    export LD_LIBRARY_PATH
+    export MPI_ROOT
+    export BOOST_ROOT=/usr/local/
 
 %runscript
+    source /opt/rh/devtoolset-8/enable
     source /opt/sw/anaconda3/etc/profile.d/conda.sh
     source activate deformetrica
     exec "$@"
 
 %post
+    PATH="/usr/local/bin/:$PATH:/usr/lib64/openmpi/bin/:/usr/local/cuda/bin"
+    LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/:/usr/local/cuda/lib64"
+    MPI_ROOT=/usr/lib64/openmpi/
+    export PATH
+    export LD_LIBRARY_PATH
+    export MPI_ROOT
+    export BOOST_ROOT=/usr/local/
+    source /opt/rh/devtoolset-8/enable
+
     # Install Anaconda
     mkdir -p /opt/sw/
     cd /opt/sw/
